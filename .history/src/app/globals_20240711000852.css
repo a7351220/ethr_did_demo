@@ -135,11 +135,9 @@ a {
 .copy-wrapper {
   display: flex;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.2);
-  padding: 0.5rem;
-  border-radius: 4px;
-  margin-bottom: 1rem;
+  gap: 0.5rem;
 }
+
 
 .did-value, .private-key {
   font-family: monospace;
@@ -210,8 +208,7 @@ a {
   padding: 1rem;
   border-radius: 8px;
   margin-top: 2rem;
-  width: 100%;
-  text-align: left; /* 確保內容靠左對齊 */
+  width: 100%; /* 確保在小屏幕上適應容器寬度 */
 }
 
 .chat-history {
@@ -290,6 +287,11 @@ a {
   color: #80bfff;
 }
 
+.input-group {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto 1rem;
+}
 
 .tx-hash {
   font-family: monospace;

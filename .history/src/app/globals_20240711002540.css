@@ -207,7 +207,7 @@ a {
 /* New styles for ChatDID page */
 .chat-box {
   background-color: var(--secondary-color);
-  padding: 1rem;
+  padding: 2rem;
   border-radius: 8px;
   margin-top: 2rem;
   width: 100%;

@@ -5,6 +5,41 @@ import { resolveDID } from '@/lib/didUtils';
 import { DIDDocument } from 'did-resolver';
 import Footer from '@/components/Footer';
 
+const FormatDIDDocument: React.FC<{ document: DIDDocument }> = ({ document }) => {
+  return (
+    <div className="did-document">
+      <h3>id: <span className="did-value">{document.id}</span></h3>
+      {document.verificationMethod && (
+        <div>
+          <h3>verificationMethod:</h3>
+          <ul>
+            {document.verificationMethod.map((method, index) => (
+              <li key={index}>
+                <p>id: <span className="did-value">{method.id}</span></p>
+                <p>type: {method.type}</p>
+                <p>controller: <span className="did-value">{method.controller}</span></p>
+                {method.publicKeyHex && <p>publicKeyHex: <span className="did-value">{method.publicKeyHex}</span></p>}
+                {method.publicKeyMultibase && <p>publicKeyMultibase: <span className="did-value">{method.publicKeyMultibase}</span></p>}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+      {document.authentication && (
+        <div>
+          <h3>authentication:</h3>
+          <ul>
+            {document.authentication.map((auth, index) => (
+              <li key={index} className="did-value">{auth}</li>
+            ))}
+          </ul>
+        </div>
+      )}
+      {/* Add more sections for other DID Document properties as needed */}
+    </div>
+  );
+};
+
 export default function ResolveDID() {
   const [did, setDid] = useState<string>('');
   const [resolvedDocument, setResolvedDocument] = useState<DIDDocument | null>(null);
@@ -32,14 +67,6 @@ export default function ResolveDID() {
     }
   };
 
-  const copyToClipboard = (text: string) => {
-    navigator.clipboard.writeText(text).then(() => {
-      alert('Copied to clipboard!');
-    }).catch((err) => {
-      console.error('Failed to copy: ', err);
-    });
-  };
-
   return (
     <div className="container">
       <h1 className="title">Resolve DID</h1>
@@ -63,17 +90,7 @@ export default function ResolveDID() {
       {resolvedDocument && (
         <div className="result">
           <h2>Resolved DID Document:</h2>
-          <div className="did-document-wrapper">
-            <pre className="did-document">
-              {JSON.stringify(resolvedDocument, null, 2)}
-            </pre>
-            <button
-              className="copy-button"
-              onClick={() => copyToClipboard(JSON.stringify(resolvedDocument, null, 2))}
-            >
-              Copy
-            </button>
-          </div>
+          <FormatDIDDocument document={resolvedDocument} />
         </div>
       )}
       <Footer />

@@ -4,7 +4,6 @@ import { useState } from 'react';
 import { resolveDID } from '@/lib/didUtils';
 import { DIDDocument } from 'did-resolver';
 import Footer from '@/components/Footer';
-
 export default function ResolveDID() {
   const [did, setDid] = useState<string>('');
   const [resolvedDocument, setResolvedDocument] = useState<DIDDocument | null>(null);
@@ -32,14 +31,6 @@ export default function ResolveDID() {
     }
   };
 
-  const copyToClipboard = (text: string) => {
-    navigator.clipboard.writeText(text).then(() => {
-      alert('Copied to clipboard!');
-    }).catch((err) => {
-      console.error('Failed to copy: ', err);
-    });
-  };
-
   return (
     <div className="container">
       <h1 className="title">Resolve DID</h1>
@@ -63,18 +54,11 @@ export default function ResolveDID() {
       {resolvedDocument && (
         <div className="result">
           <h2>Resolved DID Document:</h2>
-          <div className="did-document-wrapper">
-            <pre className="did-document">
-              {JSON.stringify(resolvedDocument, null, 2)}
-            </pre>
-            <button
-              className="copy-button"
-              onClick={() => copyToClipboard(JSON.stringify(resolvedDocument, null, 2))}
-            >
-              Copy
-            </button>
-          </div>
+          <pre className="did-document">
+            {JSON.stringify(resolvedDocument, null, 2)}
+          </pre>
         </div>
+        
       )}
       <Footer />
     </div>

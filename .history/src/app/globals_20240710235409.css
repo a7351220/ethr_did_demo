@@ -43,12 +43,12 @@ a {
 }
 
 .title {
-  font-size: 2rem; /* 調整標題字體大小 */
+  font-size: 2rem;
   margin-bottom: 1rem;
 }
 
 .subtitle {
-  font-size: 1.5rem; /* 調整副標題字體大小 */
+  font-size: 1.5rem;
   margin-bottom: 0.5rem;
 }
 
@@ -74,6 +74,7 @@ a {
 .cta-button.primary {
   background-color: var(--text-color);
   color: var(--primary-color);
+  white-space: nowrap;
 }
 
 .cta-button.secondary {
@@ -84,7 +85,7 @@ a {
 
 .features {
   display: grid;
-  grid-template-columns: 1fr; /* 修改為單列佈局 */
+  grid-template-columns: 1fr;
   gap: 2rem;
   margin-top: 4rem;
 }
@@ -96,15 +97,16 @@ a {
 }
 
 .feature h3 {
-  font-size: 1.2rem; /* 調整特徵標題字體大小 */
+  font-size: 1.2rem;
   margin-bottom: 0.5rem;
 }
 
-/* New styles for CreateDID and VerifyDID pages */
 .input-group {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto 1rem;
   display: flex;
-  flex-direction: column;
-  margin-bottom: 1rem;
+  gap: 1rem;
 }
 
 .input {
@@ -114,16 +116,16 @@ a {
   border: 1px solid var(--text-color);
   background-color: transparent;
   color: var(--text-color);
-  margin-bottom: 1rem;
 }
 
-
 .result {
-  margin-top: 2rem;
+  max-width: 800px;
+  margin: 2rem auto;
   padding: 1.5rem;
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 8px;
   text-align: left;
+  overflow-x: auto;
 }
 
 .result h2 {
@@ -141,11 +143,12 @@ a {
   margin-bottom: 1rem;
 }
 
-.did-value, .private-key {
+.did-value, .private-key, .tx-hash {
   font-family: monospace;
   word-break: break-all;
   margin-right: 1rem;
   flex-grow: 1;
+  color: #ffcc00;
 }
 
 .copy-button {
@@ -174,44 +177,73 @@ a {
   margin-top: 1rem;
 }
 
-.did-value, .verify-result {
+.verify-result {
   font-family: monospace;
   word-break: break-all;
 }
 
-@media (min-width: 768px) {
-  .hero {
-    text-align: left;
-  }
-
-  .cta-buttons {
-    justify-content: flex-start;
-  }
-
-  .features {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* 修改為多列佈局 */
-  }
+.info-box {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  text-align: left;
 }
 
-@media (min-width: 1024px) {
-  html {
-    font-size: 18px;
-  }
-
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
+.info-box p {
+  margin-bottom: 0.5rem;
 }
 
-/* New styles for ChatDID page */
+.info-box a {
+  color: #4da6ff;
+  text-decoration: underline;
+}
+
+.info-box a:hover {
+  color: #80bfff;
+}
+
+.info {
+  margin-top: 1rem;
+  font-style: italic;
+}
+
+.did-document {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  padding: 1rem;
+  margin-top: 1rem;
+  font-family: monospace;
+  white-space: pre-wrap;
+  word-break: break-word;
+  text-align: left;
+}
+
+.did-document h3 {
+  color: #4da6ff;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.did-document ul {
+  list-style-type: none;
+  padding-left: 1rem;
+}
+
+.did-document li {
+  margin-bottom: 1rem;
+}
+
+.did-document p {
+  margin: 0.25rem 0;
+}
+
 .chat-box {
   background-color: var(--secondary-color);
   padding: 1rem;
   border-radius: 8px;
   margin-top: 2rem;
   width: 100%;
-  text-align: left; /* 確保內容靠左對齊 */
 }
 
 .chat-history {
@@ -269,74 +301,28 @@ a {
   text-align: center; 
   padding: 1rem;
 }
-.info-box {
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
-  padding: 1rem;
-  margin-bottom: 1.5rem;
-  text-align: left;
+
+@media (min-width: 768px) {
+  .hero {
+    text-align: left;
+  }
+
+  .cta-buttons {
+    justify-content: flex-start;
+  }
+
+  .features {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
 }
 
-.info-box p {
-  margin-bottom: 0.5rem;
-}
+@media (min-width: 1024px) {
+  html {
+    font-size: 18px;
+  }
 
-.info-box a {
-  color: #4da6ff;
-  text-decoration: underline;
-}
-
-.info-box a:hover {
-  color: #80bfff;
-}
-
-
-.tx-hash {
-  font-family: monospace;
-  word-break: break-all;
-  margin-right: 1rem;
-  flex-grow: 1;
-}
-
-.info {
-  margin-top: 1rem;
-  font-style: italic;
-}
-
-.did-document {
-  background-color: var(--primary-color);
-  border-radius: 8px;
-  padding: 1rem;
-  margin-top: 1rem;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  word-break: break-word;
-  text-align: left;
-}
-
-.did-document h3 {
-  color: var(--text-color);
-  margin-top: 1rem;
-  margin-bottom: 0.5rem;
-  font-weight: bold;
-}
-
-.document-section {
-  margin-bottom: 1.5rem;
-}
-
-.sub-section {
-  background-color: rgba(0, 0, 0, 0.2);
-  border-radius: 4px;
-  padding: 0.75rem;
-  margin-top: 0.5rem;
-}
-
-.document-value {
-  display: block;
-  background-color: rgba(0, 0, 0, 0.2);
-  padding: 0.75rem;
-  border-radius: 4px;
-  font-family: monospace;
-  word-break: break-all;
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
 }

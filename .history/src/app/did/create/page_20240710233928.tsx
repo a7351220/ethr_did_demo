@@ -58,7 +58,7 @@ export default function CreateDID() {
             <button className="copy-button" onClick={() => copyToClipboard(privateKey)}>Copy</button>
           </div>
           <p className="warning">
-          Warning: Store this private key securely. It&apos;s required to control your DID.
+            Warning: Store this private key securely. It's required to control your DID.
           </p>
         </div>
       )}

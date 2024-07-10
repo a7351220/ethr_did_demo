@@ -290,6 +290,11 @@ a {
   color: #80bfff;
 }
 
+.input-group {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto 1rem;
+}
 
 .tx-hash {
   font-family: monospace;

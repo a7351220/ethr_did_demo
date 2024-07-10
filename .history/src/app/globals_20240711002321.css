@@ -226,26 +226,39 @@ a {
   border-radius: 4px;
   margin-bottom: 0.5rem;
   word-break: break-word;
-  display: flex;
-  flex-direction: column;
+  text-align: left;
+  position: relative; /* 添加相對定位 */
+  min-height: 80px; /* 設置最小高度，確保有足夠空間放置時間戳 */
+}
+
+.chat-message p {
+  margin: 0;
+  text-align: left;
+}
+
+.chat-message small {
+  position: absolute; /* 絕對定位 */
+  bottom: 5px; /* 距離底部 5px */
+  left: 10px; /* 距離左側 10px */
+  font-size: 0.8rem; /* 調整字體大小 */
+  color: rgba(255, 255, 255, 0.7); /* 調整顏色，使其不那麼顯眼 */
 }
 
 .chat-message button {
-  align-self: flex-end;
-  background: none;
-  border: none;
-  color: var(--text-color);
-  cursor: pointer;
+  position: absolute; /* 絕對定位 */
+  bottom: 5px; /* 距離底部 5px */
+  right: 10px; /* 距離右側 10px */
   font-size: 0.9rem;
-  margin-top: 0.5rem;
+  padding: 3px 8px;
 }
 
 .details {
-  margin-top: 0.5rem;
+  margin-top: 1rem; /* 增加與上方內容的間距 */
   background-color: rgba(0, 0, 0, 0.2);
   padding: 0.5rem;
   border-radius: 4px;
   word-break: break-word;
+  text-align: left;
 }
 
 .chat-input {

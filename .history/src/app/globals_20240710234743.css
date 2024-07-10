@@ -117,7 +117,9 @@ a {
   margin-bottom: 1rem;
 }
 
+/* ... (existing CSS remains unchanged) ... */
 
+/* New styles for CreateDID page */
 .result {
   margin-top: 2rem;
   padding: 1.5rem;
@@ -210,8 +212,7 @@ a {
   padding: 1rem;
   border-radius: 8px;
   margin-top: 2rem;
-  width: 100%;
-  text-align: left; /* 確保內容靠左對齊 */
+  width: 100%; /* 確保在小屏幕上適應容器寬度 */
 }
 
 .chat-history {
@@ -290,6 +291,11 @@ a {
   color: #80bfff;
 }
 
+.input-group {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto 1rem;
+}
 
 .tx-hash {
   font-family: monospace;
@@ -301,42 +307,4 @@ a {
 .info {
   margin-top: 1rem;
   font-style: italic;
-}
-
-.did-document {
-  background-color: var(--primary-color);
-  border-radius: 8px;
-  padding: 1rem;
-  margin-top: 1rem;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  word-break: break-word;
-  text-align: left;
-}
-
-.did-document h3 {
-  color: var(--text-color);
-  margin-top: 1rem;
-  margin-bottom: 0.5rem;
-  font-weight: bold;
-}
-
-.document-section {
-  margin-bottom: 1.5rem;
-}
-
-.sub-section {
-  background-color: rgba(0, 0, 0, 0.2);
-  border-radius: 4px;
-  padding: 0.75rem;
-  margin-top: 0.5rem;
-}
-
-.document-value {
-  display: block;
-  background-color: rgba(0, 0, 0, 0.2);
-  padding: 0.75rem;
-  border-radius: 4px;
-  font-family: monospace;
-  word-break: break-all;
 }
