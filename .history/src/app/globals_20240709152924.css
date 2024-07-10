@@ -1,0 +1,150 @@
+/* app/globals.css */
+:root {
+  --primary-color: #0000ff;
+  --secondary-color: #4040ff;
+  --text-color: #ffffff;
+  --font-size-base: 16px;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-size: var(--font-size-base);
+  background-color: var(--primary-color);
+  color: var(--text-color);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.title {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.description {
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.cta-button {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.cta-button.primary {
+  background-color: var(--text-color);
+  color: var(--primary-color);
+}
+
+.cta-button.secondary {
+  background-color: transparent;
+  border: 2px solid var(--text-color);
+  color: var(--text-color);
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 4rem;
+}
+
+.feature {
+  background-color: var(--secondary-color);
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+}
+
+.feature h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* New styles for CreateDID and VerifyDID pages */
+.input-group {
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.input {
+  flex-grow: 1;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid var(--text-color);
+  background-color: transparent;
+  color: var(--text-color);
+}
+
+.result {
+  margin-top: 2rem;
+  padding: 1rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+.result h2 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.did-value, .verify-result {
+  font-family: monospace;
+  word-break: break-all;
+}
+
+@media (min-width: 768px) {
+  .hero {
+    text-align: left;
+  }
+
+  .cta-buttons {
+    justify-content: flex-start;
+  }
+}
+
+@media (min-width: 1024px) {
+  html {
+    font-size: 18px;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}
