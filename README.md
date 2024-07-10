@@ -47,7 +47,7 @@ Engage in secure communication using your DID for authentication. This feature d
 
 2. Navigate to the project directory:
    ```
-   cd did-management-system
+   cd ethr_did_demo
    ```
 
 3. Install dependencies:
